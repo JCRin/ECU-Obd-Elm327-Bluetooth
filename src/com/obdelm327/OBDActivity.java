@@ -668,6 +668,7 @@ public class OBDActivity extends Activity {
 			int errors=0;
 			String strerror="no error";
 			if (msg.substring(0, 4).equals("4100")){
+		
 	            	 setPidsSupported(msg);	            	
 	             }
 			else if (msg.substring(0, 2).equals("43"))	
@@ -703,6 +704,7 @@ public class OBDActivity extends Activity {
 	                        } catch (NumberFormatException nFE) {}
 	                if(tmpmsg.equals("410C"))
 	     	             {
+	     	             	//obdval = Integer.parseInt(msg.substring(4,8),16);
 	     	                 int val = (int)(obdval / 4);
 	     	                 rpmval=val;
 	     	                 if(rpmval>8000)rpmval=8000;
@@ -710,6 +712,7 @@ public class OBDActivity extends Activity {
 	     	             }
 	   	            else if (tmpmsg.equals("410D"))
 	     	             {	            	
+	     	             	//obdval = Integer.parseInt(msg.substring(4,6),16);
 	     	            	 speed.setTargetValue((int)obdval);		            	
 	     	             }
 	   	            else if (tmpmsg.equals("4105")){
